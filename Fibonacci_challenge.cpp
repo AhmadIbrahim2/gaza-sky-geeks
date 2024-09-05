@@ -1,28 +1,32 @@
 #include <iostream>
 using namespace std;
 
-class Challenge {
-public:
-    int missingNumber(vector<int>& nums) {
+void getFibonacci(int n) {
+    int s1 = 0, s2 = 1, next = 0;
 
-        int n = nums.size();
+    cout << t1 << ", " << t2;
 
-        vector<int>v(n + 1, -1);
-
-        for (int i = 0; i < nums.size(); i++) {
-            v[nums[i]] = nums[i];
-        }
-
-        for (int i = 0; i < v.size(); i++) {
-            if (v[i] == -1)return i;
-        }
-
-        return 0;
+    for (int i = 1; i <= n - 2; ++i) {
+        next = s1 + s2;
+        cout << ", " << next;
+        s1 = s2;
+        s2 = next;
     }
-};
+    cout << endl;
+}
 
 int main() {
-    Challenge x;
-    x.missingNumber(6);
+    int n;
+    cout << "Enter the number of numbers in sequence: ";
+    cin >> n;
 
+    if (n < 2) {
+        cout << "must be greater than 1 number." << endl;
+    }
+    else {
+        cout << "Fibonacci Sequence: ";
+        getFibonacci(n);
+    }
+
+    return 0;
 }
